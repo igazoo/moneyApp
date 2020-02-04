@@ -1,6 +1,5 @@
 class ExpensesController < ApplicationController
-
-require 'date'
+  before_action :logged_in_user
   def index
     @expenses = Expense.all
     @graf ={'食事'=>0, '飲み会'=>0,'買い物'=>0,'遊び'=>0,'デート'=>0,'その他'=>0}
