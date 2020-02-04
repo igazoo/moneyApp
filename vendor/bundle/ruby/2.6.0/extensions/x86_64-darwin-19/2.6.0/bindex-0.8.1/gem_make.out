@@ -1,0 +1,15 @@
+current directory: /Users/igarashinao/workspace/freee_app/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/igarashinao/.rbenv/versions/2.6.3/bin/ruby -I /Users/igarashinao/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20200205-89785-wzt3pe.rb extconf.rb
+creating Makefile
+
+current directory: /Users/igarashinao/workspace/freee_app/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/igarashinao/workspace/freee_app/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/igarashinao/workspace/freee_app/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20200205-89785-si2djg/skiptrace/internal
