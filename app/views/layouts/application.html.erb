@@ -1,62 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>FreeeApp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'application', media: 'all',
-                               'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application',
-                               'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
-    <% end %>
-    <header>
-      <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
-       <div class="container">
-         <%= link_to root_path do %>
-           <%=link_to 'MyApp',root_path %>
-         <% end %>
-         <ul class="nav navbar-nav navbar-right">
-           <% if logged_in? %>
-            
-             <li>
-               <%= link_to expenses_path do %>
-                 <%= image_tag "graf.png" %>
-               <% end %>
-             </li>
-             <li>
-               <%= link_to new_expense_path do %>
-                 <%= image_tag "new.png" %>
-               <% end %>
-             </li>
-             <li>
-               <%= link_to logout_path, method: :delete do %>
-                 <%= image_tag "logout.png" %>
-               <% end %>
-             </li>
-           <% else %>
-             <li>
-               <%= link_to login_path do %>
-                 <%= image_tag "login.png" %>
-               <% end %>
-             </li>
-           <% end %>
-         </ul>
-       </div>
-     </nav>
-   </header>
+<head>
+  <title>FreeeApp</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'application', media: 'all',
+  'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application',
+  'data-turbolinks-track': 'reload' %>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet">
+</head>
+<body>
+  <% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+  <% end %>
+  <header>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
+      <div class="container">
 
-    <%= yield %>
-    <script>
-      $(function(){
-        $(".alert").fadeOut(5000);
-      });
-    </script>
-  </body>
+        <%=link_to 'FreeeApp',root_path %>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? %>
+          <li>
+            <%= link_to expenses_path do %>
+            <%= image_tag "graf.png" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_expense_path do %>
+            <%= image_tag "new.png" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to logout_path, method: :delete do %>
+            <%= image_tag "logout.png" %>
+            <% end %>
+          </li>
+          <% else %>
+          <li>
+            <%= link_to login_path do %>
+            <%= image_tag "login.png" %>
+            <% end %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <%= yield %>
+  <script>
+    $(function(){
+      $(".alert").fadeOut(5000);
+    });
+  </script>
+</body>
 </html>

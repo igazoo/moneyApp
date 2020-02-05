@@ -1,29 +1,32 @@
 <div class="expense-show-wrapper">
   <div class="expense-show-container">
-    <h6>
+    <h3>
       <%= @expense.month %>月
-    </h6>
-      <div class="expense-show-main-area">
-        <div class="expense-show-list">
-          <% sum = 0 %>
-          <ul>　
-            <% @expenses.each do |expense| %>
-              <% if expense.month == @expense.month %>
-                <li>
-                  <%= expense.month %>月
-                  <%= expense.date %>日
-                  <%= expense.category %>
-                  <%= expense.money %>円
-                  <%= link_to '[編集]', edit_expense_path(expense)%>
-                  <%= link_to '[削除]',expense_path(expense),method: :delete,
-                                    data: { confirm: '削除しますか?'} %>
-                  <% sum += expense.money.to_i %>
-                </li>
-                <% end %>
-              <% end %>
-              </ul>
-            </div>
-          </div>
-      <h6>合計: <%= sum %>円</h6>
+    </h3>
+    <div class="expense-show-main-area">
+      <div class="graf2">
+        <h4>＊<%= @expense.month %>月のカテゴリーのデータ<h4>
+          <%= pie_chart(@graf2) %>
+        </div>
+        <% sum = 0 %>
+        <table border ="1">
+          <tr>
+            <th>日付</th><th>カテゴリー</th><th>金額</th>
+          </tr>
+          <% @expenses.each do |expense| %>
+          <% if expense.month == @expense.month %>
+          <tr>
+            <td><%= expense.date %>日</td><td><%= expense.category %></td><td><%= expense.money %>円</td>
+            <td><%= link_to '[編集]', edit_expense_path(expense),:style=>"color:mediumseagreen"%></td>
+            <td><%= link_to '[削除]',expense_path(expense),method: :delete,
+              data: { confirm: '削除しますか?'},:style =>'color: darkred' %>
+            </td>
+          </tr>
+          <% sum += expense.money.to_i %>
+          <% end %>
+          <% end %>
+        </table>
+      </div>
+      <h5>合計: <%= sum %>円</h5>
+    </div>
   </div>
-</div>

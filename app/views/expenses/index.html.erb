@@ -1,36 +1,35 @@
 <div class="index_wrapper">
   <div class="index_container">
-    <h3>記録</h3>
+    <h3>記録一覧</h3>
     <div class="index_main_area">
       <div class="index_list">
         <div class="graf">
-          <h4>＊カテゴリーのデータ<h4>
-          <%= pie_chart(@graf) %>
-        </div>
-        <% judge = Array.new(12) %>
-      　<% k = 0 %>
-        <h5>＊月ごとのデータ</h5>
-        <ul>
-          <% @expenses.each do |expense| %>
+          <h4>＊全体のカテゴリーのデータ<h4>
+            <%= pie_chart(@graf) %>
+          </div>
+          <% judge = Array.new(12) %>
+          <% k = 0 %>
+          <h5>＊月ごとのデータ</h5>
+            <table border="1">
+            <% @expenses.each do |expense| %>
             <% judge[k] = expense.month %>
             <% flg = 0 %>
-
             <% for i in 0..k-1 %>
-              <% if judge[i] == expense.month %>
-                <% flg = 1 %>
-              <% end %>
+            <% if judge[i] == expense.month %>
+            <% flg = 1 %><% end %>
             <% end %>
-
             <% if flg == 1  %>
-              <% next %>
-            <% end %>
+            <% next %><% end %>
 
-            <li><%= expense.month %>月
-            <%= link_to '詳細データ', expense_path(expense) %></li>
-            <% k += 1 %>
-          <% end %>
-        </ul>
+
+                <tr>
+                  <td class="item"><%= expense.month %>月</td>
+                  <td>  <%= link_to '詳細データ', expense_path(expense) %>
+                </td>
+              </tr>
+              <% k += 1 %><% end %>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
