@@ -67,8 +67,9 @@ class ExpensesController < ApplicationController
   def update
     @expense = Expense.find(params[:id])
     if @expense.update(expense_params)
-      redirect_to expense_path
+      redirect_to expense_path,success:"編集しました"
     else
+      flash[:danger] ="編集に失敗しました"
       render 'edit'
     end
   end
@@ -76,7 +77,7 @@ class ExpensesController < ApplicationController
   def destroy
     @expense = Expense.find(params[:id])
     @expense.destroy
-    redirect_to expenses_path
+    redirect_to expenses_path,info:"データを削除しました"
   end
 
   private
