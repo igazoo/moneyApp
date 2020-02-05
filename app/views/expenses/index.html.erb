@@ -10,7 +10,7 @@
           <% judge = Array.new(12) %>
           <% k = 0 %>
           <h5>＊月ごとのデータ</h5>
-            <table border="1">
+          <table border="1">
             <% @expenses.each do |expense| %>
             <% judge[k] = expense.month %>
             <% flg = 0 %>
@@ -20,16 +20,15 @@
             <% end %>
             <% if flg == 1  %>
             <% next %><% end %>
-
-
-                <tr>
-                  <td class="item"><%= expense.month %>月</td>
-                  <td>  <%= link_to '詳細データ', expense_path(expense) %>
-                </td>
-              </tr>
-              <% k += 1 %><% end %>
-            </table>
-          </div>
+            <tr>
+              <td class="item"><%= expense.month %>月</td>
+              <td>
+                <%= link_to '詳細データ', expense_path(expense) %>
+              </td>
+            </tr>
+            <% k += 1 %><% end %>
+          </table>
         </div>
       </div>
     </div>
+  </div>

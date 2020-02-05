@@ -9,24 +9,27 @@
           <%= pie_chart(@graf2) %>
         </div>
         <% sum = 0 %>
-        <table border ="1">
+        <table border="1">
           <tr>
-            <th>日付</th><th>カテゴリー</th><th>金額</th>
+            <th>日付</th>
+            <th>カテゴリー</th>
+            <th>金額</th>
           </tr>
           <% @expenses.each do |expense| %>
           <% if expense.month == @expense.month %>
           <tr>
-            <td><%= expense.date %>日</td><td><%= expense.category %></td><td><%= expense.money %>円</td>
+            <td><%= expense.date %>日</td>
+            <td><%= expense.category %></td>
+            <td><%= expense.money %>円</td>
             <td><%= link_to '[編集]', edit_expense_path(expense),:style=>"color:mediumseagreen"%></td>
-            <td><%= link_to '[削除]',expense_path(expense),method: :delete,
-              data: { confirm: '削除しますか?'},:style =>'color: darkred' %>
+            <td><%= link_to '[削除]',expense_path(expense),method: :delete, data: { confirm: '削除しますか?'},:style =>'color: darkred' %>
             </td>
           </tr>
-          <% sum += expense.money.to_i %>
-          <% end %>
+          <% sum += expense.money.to_i %><% end %>
           <% end %>
         </table>
       </div>
-      <h5>合計: <%= sum %>円</h5>
+      <h5>合計:
+        <%= sum %>円</h5>
+      </div>
     </div>
-  </div>

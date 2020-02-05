@@ -10,29 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_04_145801) do
-
-  create_table "events", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2020_02_04_121027) do
 
   create_table "expenses", force: :cascade do |t|
     t.string "category"
     t.integer "money"
     t.string "month"
     t.string "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "incomes", force: :cascade do |t|
-    t.integer "money"
-    t.integer "month"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

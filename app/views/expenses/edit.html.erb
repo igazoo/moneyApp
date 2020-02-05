@@ -4,20 +4,20 @@
     <div class="row">
       <div class="col-md-offset-4 col-md-4 expense-new-container">
         <%= form_for @expense do |f| %>
-         <div class="expense-form-group">
-           <%=f.select :month,[1,2,3,4,5,6,7,8,9,10,11,12] %>月
-           <%=f.select :date,[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,
-                                   18,19,20,21,22,23,24,25,26,27,28,29,30,31]%>日
-         </div>
-          <div class="expense-form-group">
-            <%= f.label :category %>
-            <%=  f.select :category, ['食事', '飲み会', '買い物','遊び','デート','その他'], {include_blank: '選択してください'}  %>
-          </div>
-          <div class="expense-form-group">
-            <%= f.label :money ,'金額入力' %>
-            <%= f.text_field :money%>円
-          </div>
-          <%= f.submit "編集", class: 'btn-expense btn-info' %>
+        <div class="expense-form-group">
+          <%=f.select :month,[1,2,3,4,5,6,7,8,9,10,11,12] %>月
+          <%=f.select :date,[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,
+          18,19,20,21,22,23,24,25,26,27,28,29,30,31]%>日
+        </div>
+        <div class="expense-form-group">
+          <%= f.label :category %>
+          <%=  f.select :category, ['食事', '飲み会', '買い物','遊び','デート','その他'], {include_blank: '選択してください'}  %>
+        </div>
+        <div class="expense-form-group">
+          <%= f.label :money ,'金額入力' %>
+          <%= f.text_field :money%>円
+        </div>
+        <%= f.submit "編集", class: 'btn-expense btn-info' %>
         <% end %>
       </div>
     </div>
