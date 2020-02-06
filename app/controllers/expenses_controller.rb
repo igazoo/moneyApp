@@ -1,5 +1,5 @@
 class ExpensesController < ApplicationController
-  before_action :logged_in_user
+
 
   def index
     @expenses = Expense.all
@@ -52,8 +52,9 @@ class ExpensesController < ApplicationController
 
   def create
     @expense = Expense.new(expense_params)
+    @expense.user_id= current_user.id
     if @expense.save
-      redirect_to expenses_path, success:'記録しました'
+      redirect_to expense_index_user_path(current_user.id), success:'記録しました'
     else
       flash[:danger] ='記録できませんでした'
       render :new

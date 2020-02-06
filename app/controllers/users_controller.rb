@@ -1,6 +1,27 @@
 class UsersController < ApplicationController
-
   def show
+  end
+
+  def expense_index
+    @user = User.find(params[:id])
+    @expenses= Expense.where(user_id: @user.id)
+    @graf ={'食事'=>0, '飲み会'=>0,'買い物'=>0,'遊び'=>0,'デート'=>0,'その他'=>0}
+    @expenses.each do |expense|
+      if expense.category =='食事'
+        @graf['食事']+=expense.money
+      elsif expense.category =='飲み会'
+        @graf['飲み会']+=expense.money
+      elsif expense.category =='買い物'
+        @graf['買い物']+=expense.money
+      elsif expense.category =='遊び'
+        @graf['遊び']+=expense.money
+      elsif expense.category =='デート'
+        @graf['デート']+=expense.money
+      elsif expense.category =='その他'
+        @graf['その他']+=expense.money
+      end
+    end
+
   end
 
   def new
@@ -17,6 +38,7 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
 
   private
   def user_params
