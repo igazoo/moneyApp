@@ -41,7 +41,7 @@
   width: 300px;
   margin-left: 470px;
   position: absolute;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .index_wrapper {
@@ -62,12 +62,12 @@
     font-weight: bold;
     color: #808080;
   }
-  padding-top: 120px;
+  padding-top: 80px;
 }
 
 .index_main_area {
   padding-left: 200px;
-  padding-top: 40px;
+  padding-top: 10px;
   margin-left: 130px;
   color: #000;
 
@@ -75,21 +75,21 @@
     margin-left: 40px;
     font-size: 20px;
     margin-top: 40px;
-    padding-top: 30px;
+    padding-top: 10px;
 
   }
   table{
     float: left;
     width: 250px;
     margin-left: 0px;
-    margin-top: 20px;
+    margin-top: 10px;
 
     .item{
       background-color: skyblue;
 
     }
     td{
-      padding: 20px;
+      padding: 15px;
     }
   }
 
@@ -105,7 +105,7 @@
 
 .expense-show-container {
   width: 100%;
-  padding-top: 150px;
+  padding-top: 90px;
 
   h3 {
     font-size: 40px;
@@ -116,7 +116,11 @@
   h5 {
     font-size: 40px;
     color: #000;
-    margin-top: 100px;
+    margin-top: 0px;
+    position: relative;
+    top: -240px;
+    left: 700px;
+
   }
 }
 .expense-show-main-area{

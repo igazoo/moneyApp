@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-  def show
-  end
-
+  before_action :logged_in_user,only:[:expense_index]
   def expense_index
     @user = User.find(params[:id])
     @expenses= Expense.where(user_id: @user.id)
