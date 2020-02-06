@@ -7,7 +7,7 @@ class ExpensesController < ApplicationController
 
 
   def show
-    @expenses = Expense.all
+    @expenses= Expense.where(user_id: current_user.id)
     @expense = Expense.find(params[:id])
     @graf2={'食事'=>0, '飲み会'=>0,'買い物'=>0,'遊び'=>0,'デート'=>0,'その他'=>0}
     @expenses.each do |expense|
