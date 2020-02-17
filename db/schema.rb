@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2020_02_06_062953) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
   end
-
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
